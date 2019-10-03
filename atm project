@@ -1,0 +1,122 @@
+#include<stdio.h>
+#include<conio.h>
+
+int amt=20000,pin=1234;
+
+int pin_enter()
+{
+    int pass=0,i;
+    char a;
+    for(i=0; i<=3; i++)
+    {
+        a=getch();
+        printf("*");
+        a=a-48;
+        pass=pass*10+a;
+    }
+    return pass;
+    }
+
+    void bal_enq()
+    {
+        printf("Available Balance is: %d",amt);
+    }
+
+
+    void cash()
+    {
+        int am;
+        printf("Enter amount: ");
+        scanf("%d",&am);
+        if(am>amt)
+        printf("Insufficient Amount!!");
+        else
+            amt=amt-am;
+
+            printf("Avalable amount is: %d",amt);
+    }
+
+    int change_pin()
+    {
+        int op,np,cp, count=1, done=0;
+
+        while(1)
+        {
+            if(count==4)
+                break;
+    printf("Enter old pin:");
+        op=pin_enter();
+
+         if(pin==op)
+        {
+                printf("Enter new pin:");
+                np=pin_enter();
+                printf("Confirm Pin:");
+                cp=pin_enter();
+
+                if(np==cp)
+                 {
+                     done=1;
+                   pin=np;
+                   printf("Pin successfully changed!!");
+                   break;
+                 }
+                 else
+                 {
+                     count++;
+                 printf("Password does not  match");
+                 }
+        }
+        else
+        {
+            printf("Wrong password!! ");
+            count++;
+        }
+        if(count==3)
+            return(4);
+    }
+    }
+
+void main()
+{
+    int p,opt,count=1;
+    while(1)
+    {
+        if(count==4)
+            break;
+    printf("Enter pin: ");
+    p=pin_enter();
+    if(p==pin)
+    {
+        printf("1. Bal Enq\n2.Cash With.\n3.Change Pin\n4.Ext");
+        scanf("%d",&opt);
+        switch(opt)
+        {
+        case 1:
+            bal_enq();
+            getch();
+            break;
+        case 2:
+            cash();
+            getch();
+            break;
+        case 3:
+            opt=change_pin();
+            getch();
+            break;
+        case 4:
+            break;
+        default:
+            printf("invalid option!!");
+        }
+    }
+    else
+    {
+        count++;
+    }
+
+if(opt==4)
+    break;
+    }
+        printf("\nThanks");
+}
