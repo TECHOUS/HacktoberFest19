@@ -22,3 +22,5 @@ Here are some of the repostories you can choose but you can choose any other als
 ![contribution](images/contribution.png)
 
 * Read all the instructions carefully and follow
+
+ACCEPT MY HACKTOBER FEST REQUEST
